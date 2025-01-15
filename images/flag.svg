@@ -1,0 +1,6 @@
+<svg width="25" height="25" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Pole -->
+  <rect x="10" y="10" width="5" height="80" fill="black" />
+  <!-- Flag -->
+  <polygon points="15,10 55,30 15,50" fill="red" />
+</svg>

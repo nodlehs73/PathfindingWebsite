@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel = "stylesheet" href = "home_style.css">
+        <title>Pathfinding Visualizer</title>
+    </head>
+    <body>
+        <header class = "presentation">
+             <a href = "index.html">
+                <div class = "title-letter">Pathfinding Visualizer</div>
+             </a>
+        </header>
+
+       
+        <main class = "container">
+            <h1 class = "subtitle">About the algorithms</h1>
+            <section class = "algorithms">
+                <section class = "algorithm"><span class = "makeBold">Breadth-First Search (BFS)</span> is an uninformed search algorithm that explores all nodes at the current depth level before moving to the next level. It uses a queue (FIFO) for traversal and guarantees the shortest path in an unweighted graph. Its time complexity is O(V + E), and its space complexity is O(V) as it stores nodes in memory.</section>
+                <section class = "algorithm remainder"><span class = "makeBold">Depth-First Search (DFS)</span> is another uninformed search algorithm that explores as far as possible along one branch before backtracking. It uses a stack (LIFO) or recursion for traversal. DFS does not guarantee the shortest path but can explore deep structures with less memory. Its time complexity is O(V + E), and its space complexity is O(V), mainly for the recursion stack.</section>
+                <section class = "algorithm"><span class = "makeBold">A* Search</span> is an informed search algorithm that uses both the cost to reach a node from the start (g(n)) and a heuristic estimate of the cost to the goal (h(n)) to decide the next node to explore. It uses a priority queue and is optimal when the heuristic is admissible (does not overestimate the true cost). Its time complexity depends on the heuristic but can approach O(V + E), and its space complexity is O(V), as it keeps track of nodes in memory.</section>
+            </section>
+            <h1>How to use the website</h1>
+
+            <section class = "about-website">
+                <article>
+                    <strong>The navigation bar</strong> provides several interactive options for using the pathfinding visualizer. The “Algorithms” menu allows you to choose between three algorithms: Depth-First Search (DFS), Breadth-First Search (BFS), and A* Search. DFS explores as far as possible along a single path before backtracking, BFS explores all neighboring cells level by level, and A* Search uses a heuristic to prioritize cells and ensures the shortest path when the heuristic is admissible. To use this menu, hover over “Algorithms” and select the algorithm you wish to visualize.
+                </article>  
+
+                <article>
+                    <strong>The “Add Walls” option</strong> lets you create obstacles on the grid. These walls act as barriers that the algorithm cannot pass through during its search. To add walls, hold down the mouse button and drag across the cells where you want to place the walls. Release the mouse button when you are done drawing.
+                </article>
+
+                <article>
+                    <strong>The “Remove Walls” option</strong> allows you to remove any walls you have added to the grid. By holding down the mouse button and dragging over the cells you want to clear, you can make those cells accessible to the algorithm again.
+                </article>
+
+                <article>
+                    <strong>The “Start Visualization” button</strong> begins the process of visualizing the selected algorithm. Before clicking this button, make sure you have selected an algorithm from the “Algorithms” menu, designated both a start and finish cell, and optionally added or removed walls to customize the grid. The visualization will demonstrate the algorithm’s search for the shortest path from the starting cell to the destination.
+                </article>
+
+                <article>
+                    <strong>The “Select Start” option</strong> enables you to define the starting point of the algorithm. Click on a cell in the grid to mark it as the starting cell. Similarly, the “Select Finish” option allows you to select the destination cell. Click on a cell to designate it as the end point for the pathfinding process.
+                </article>  
+
+                <article>
+                    <strong>The “Clear Board” button</strong> resets the grid to its initial state by removing all walls, the start point, and the finish point. If you want to re-run an algorithm or make significant changes to the grid, it is essential to clear the board before proceeding.
+                </article>
+            </section>
+            <h2>What are your thoughts about the website ?</h2>
+            <section>
+                <form>
+                    <div class = "form">
+                        <div>
+                            <label for = "name">Name</label>
+                            <textarea id = "name" name = "name"></textarea>
+                        </div>
+
+                        <div>
+                            <label for = "thoughts">Your thoughts</label>
+                            <textarea id = "thoughts" name = "thoughts"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </section>
+            <div class = "button-holder">
+                <button>Submit</button>
+            </div>
+        </main>
+        <script src = "./home_js.js"></script>
+    </body>
+    
+</html>
