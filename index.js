@@ -282,7 +282,7 @@ function bfs () {
 
     const visited = Array.from (new Array (ROWS), (x) => new Array (COLUMNS).fill (0));
     visited[last_pacman[0]][last_pacman[1]] = 1;
-    squares[last_pacman[0]][last_pacman[1]].firstChild.className = "visit";
+    squares[last_pacman[0]][last_pacman[1]].firstChild.classList.add("visit");
 
     for (let i = 0; i < ROWS; ++i) {
         for (let j = 0; j < COLUMNS; ++j) {
@@ -310,7 +310,7 @@ function bfs () {
                     visited[new_i][new_j] = 1;
 
                     if (new_i === last_cherry[0] && new_j === last_cherry[1]) {
-                        setTimeout (() => squares[new_i][new_j].firstChild.className = "visit", (iter + 4) * 20);
+                        setTimeout (() => squares[new_i][new_j].firstChild.classList.add( "visit"), (iter + 4) * 20);
                         found = 1;
                     }
                 }
@@ -458,7 +458,7 @@ function get_saved_board () {
                     div.className = "fill"; 
                     div.classList.add ('visit');
                     square.appendChild (div);
-                } else if (Math.abs (board[i][j] === 3)) {
+                } else if (Math.abs (board[i][j]) === 3) {
                     const img = document.createElement ('img');
                     img.setAttribute ('src', './images/arrow.svg');
                     img.classList.add ('image');
@@ -471,7 +471,7 @@ function get_saved_board () {
                     square.appendChild (img);
                 } else {
                     const img = document.createElement ('img');
-                    img.setAttribute ('src', './images/arrow.svg');
+                    img.setAttribute ('src', './images/flag.svg');
                     img.classList.add ('image');
                     // img.className = "fill";
                     last_cherry = [i, j];
@@ -511,17 +511,17 @@ function save_grid_state () {
                 if (state.tagName === "IMG") {
                     const image_path = state.getAttribute ('src');
                     const image_letter = image_path[image_path.length - 5];
-                    console.log (image_letter);
+                    console.log (state.className);
                     if (image_letter === 'g') {
 
-                        saved_grid[i][j] = 4 * (state.className === "" ? 1 : -1);
+                        saved_grid[i][j] = 4 * (classList.length === 1 ? 1 : -1);
                     } else {
-                        saved_grid[i][j] = 3 * (state.className === "" ? 1 : -1);
+                        saved_grid[i][j] = 3 * (classList.length === 1 ? 1 : -1);
                     }
-                    console.log (saved_grid[i][j], state.className);
+                    // console.log (saved_grid[i][j], state.className);
                 } else {
                     const style = getComputedStyle (state);
-                    console.log (style.backgroundColor, style.top);
+                    // console.log (style.backgroundColor, style.top);
 
                     if (style.backgroundColor === 'rgb(0, 255, 255)' && style.top === "0px") {
                         saved_grid[i][j] = 2;
@@ -533,7 +533,7 @@ function save_grid_state () {
             }
         }
         console.log (JSON.stringify (saved_grid));
-        console.log (JSON.parse (localStorage.getItem ('grid')));
+        // console.log (JSON.parse (localStorage.getItem ('grid')));
         localStorage.setItem ('grid', JSON.stringify (saved_grid));
     }, 2000);
 }
