@@ -538,20 +538,33 @@ function save_grid_state () {
     }, 2000);
 }
 
+async function test () {
+    const url = "https://cors-anywhere.herokuapp.com/http://api.genius.com/songs/";
+    const nr = Math.floor( Math.random()*95+5 );
+    const response = await fetch( `${url}${nr}`,{
+        headers:{
+            Authorization:"Bearer CXyFeSBw2lAdG41xkuU3LS6a_nwyxwwCz2dCkUohw-rw0C49x2HqP__6_4is5RPx",
+        }
+    } );
+    const song = await response.json ();
+    console.log (song);
+}
 
-remove_borders ();
+test();
 
-color_navigation ();
-enable_painting ();
-enable_removing ();
+// remove_borders ();
 
-handle_painting_and_removing();
+// color_navigation ();
+// enable_painting ();
+// enable_removing ();
 
-handle_selecting_start ();
+// handle_painting_and_removing();
 
-handle_selecting_finish ();
+// handle_selecting_start ();
 
-start_visualization ();
+// handle_selecting_finish ();
 
-get_saved_board ();
-save_grid_state ();
+// start_visualization ();
+
+// get_saved_board ();
+// save_grid_state ();
